@@ -44,3 +44,36 @@ export const getAllOrders = async (req, res) => {
   const orders = await Order.find().populate("user_id");
   res.json(orders);
 };
+
+export const getOrdersStats = async (req, res) => {
+  const stats = await Order.aggregate([
+    {
+      $group: {
+        _id: "$user_id",
+        totalOrders: { $sum: 1 },
+        totalSpent: { $sum: "$total_price" }
+      }
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "_id",
+        foreignField: "_id",
+        as: "user"
+      }
+    },
+    { $unwind: "$user" },
+    {
+      $project: {
+        _id: 0,
+        userId: "$user._id",
+        userName: "$user.full_name",
+        totalOrders: 1,
+        totalSpent: 1
+      }
+    }
+  ]);
+
+  res.json(stats);
+};
+

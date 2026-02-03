@@ -32,3 +32,5 @@ const orderSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("Order", orderSchema);
+
+orderSchema.index({ user_id: 1, createdAt: -1 });

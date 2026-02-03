@@ -1,4 +1,5 @@
 import express from "express";
+import { getOrdersStats } from "../controllers/orderController.js";
 import {
   createOrder,
   getMyOrders,
@@ -14,3 +15,5 @@ router.get("/my", protect, getMyOrders);
 router.get("/", protect, adminOnly, getAllOrders);
 
 export default router;
+
+router.get("/stats", protect, adminOnly, getOrdersStats);

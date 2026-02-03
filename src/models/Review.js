@@ -19,3 +19,5 @@ const reviewSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("Review", reviewSchema);
+
+reviewSchema.index({ product_id: 1, user_id: 1 });
