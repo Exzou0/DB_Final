@@ -71,3 +71,31 @@ async function addProduct() {
 if (document.getElementById("products")) {
   loadProducts();
 }
+
+async function updateProduct() {
+  await fetch(`${API}/products/${updateId.value}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${getToken()}`
+    },
+    body: JSON.stringify({
+      price: updatePrice.value
+    })
+  });
+
+  alert("Product updated");
+}
+
+
+async function deleteProduct() {
+  await fetch(`${API}/products/${deleteId.value}`, {
+    method: "DELETE",
+    headers: {
+      "Authorization": `Bearer ${getToken()}`
+    }
+  });
+
+  alert("Product deleted");
+}
+

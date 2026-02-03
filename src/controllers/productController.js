@@ -17,13 +17,15 @@ export const getProducts = async (req, res) => {
 };
 
 export const updateProduct = async (req, res) => {
-  const product = await Product.findByIdAndUpdate(
+  const updated = await Product.findByIdAndUpdate(
     req.params.id,
-    req.body,
+    { $set: req.body },
     { new: true }
   );
-  res.json(product);
+
+  res.json(updated);
 };
+
 
 export const deleteProduct = async (req, res) => {
   await Product.findByIdAndDelete(req.params.id);
