@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analytics</title>
+</head>
+<body>
+
+<nav>
+  <a href="products.html">Products</a> |
+  <a href="admin.html">Admin</a> |
+  <a href="/"> Home</a>
+  <button onclick="logout()">Logout</button>
+</nav>
+
+<h2>Analytics (Admin)</h2>
+
+<button onclick="loadOrdersPerUser()">Orders per User</button>
+<button onclick="loadRevenue()">Total Revenue</button>
+<button onclick="loadTopProducts()">Top Products</button>
+
+<pre id="analyticsOutput"></pre>
+
+<script src="app.js"></script>
+<script>
+  protectAdminPage();
+</script>
+
+</body>
+</html>

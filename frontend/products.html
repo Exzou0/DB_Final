@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Products</title>
 </head>
 <body>
-  <h2>Products</h2>
-  <ul id="products"></ul>
 
-  <script src="app.js"></script>
+<nav>
+  <a href="products.html">Products</a> |
+  <a href="admin.html">Admin</a> |
+  <a href="/">Home</a>
+  <button onclick="logout()">Logout</button>
+</nav>
+<hr>
+
+<p id="currentUser"></p>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody id="products"></tbody>
+</table>
+
+<script src="app.js"></script>
 </body>
 </html>

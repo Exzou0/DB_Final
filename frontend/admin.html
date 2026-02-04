@@ -1,26 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Admin</title>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
 </head>
 <body>
-  <h2>Add Product</h2>
-  <input id="name" placeholder="Name">
-  <input id="price" placeholder="Price">
-  <input id="category" placeholder="Category ID">
-  <button onclick="addProduct()">Add</button>
 
-  <h2>Update Product</h2>
-<input id="updateId" placeholder="Product ID">
-<input id="updatePrice" placeholder="New price">
-<button onclick="updateProduct()">Update</button>
+<nav>
+  <a href="products.html">Products</a> |
+  <a href="/">Home</a>
+  <button onclick="logout()">Logout</button>
+</nav>
+<hr>
 
-<h2>Delete Product</h2>
-<input id="deleteId" placeholder="Product ID">
-<button onclick="deleteProduct()">Delete</button>
+<p id="currentUser"></p>
 
-  
+<h2>Products</h2>
 
-  <script src="app.js"></script>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="products"></tbody>
+</table>
+
+
+
+
+<hr>
+
+<h2>Reference IDs (Admin)</h2>
+
+<h3>Categories</h3>
+<ul id="adminCategories"></ul>
+
+<h3>Products</h3>
+<ul id="adminProducts"></ul>
+
+<h3>Reviews</h3>
+<ul id="adminReviews"></ul>
+
+
+<script src="app.js"></script>
+<script>
+  loadAdminProducts();        // таблица
+  loadAdminProductRefs();     // reference IDs
+  loadAdminCategories();
+  loadAdminReviews();
+</script>
+
+
+
 </body>
 </html>
