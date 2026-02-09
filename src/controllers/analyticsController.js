@@ -2,22 +2,21 @@ import Order from "../models/Order.js";
 
 export const ordersPerUser = async (req, res) => {
   const result = await Order.aggregate([
-    // 1. Разворачиваем массив продуктов, чтобы каждый товар стал отдельным документом
+
     { $unwind: "$products" },
     
-    // 2. Группируем по ID пользователя И названию товара
     {
       $group: {
         _id: {
           user_id: "$user_id",
           product_name: "$products.name"
         },
-        totalQuantity: { $sum: "$products.quantity" }, // Суммируем количество штук
-        ordersCount: { $sum: 1 } // Сколько раз этот товар встречался в заказах
+        totalQuantity: { $sum: "$products.quantity" }, 
+        ordersCount: { $sum: 1 } 
       }
     },
     
-    // 3. Красиво форматируем вывод
+
     {
       $project: {
         _id: 0,

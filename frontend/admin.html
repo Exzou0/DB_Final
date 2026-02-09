@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -13,11 +14,28 @@
 </nav>
 <hr>
 
+<section class="admin-actions">
+  <div class="card">
+    <h3>Create Category</h3>
+    <input id="newCatName" type="text" placeholder="Category Name">
+    <button onclick="createCategory()">Create Category</button>
+  </div>
+
+  <div class="card">
+    <h3>Create Product</h3>
+    <input id="newProdName" type="text" placeholder="Product Name">
+    <input id="newProdPrice" type="number" placeholder="Price">
+    <input id="newProdCatId" type="text" placeholder="Category ID (from list below)">
+    <button onclick="createProduct()">Create Product</button>
+  </div>
+</section>
+<hr>
+
 <p id="currentUser"></p>
 
 <h2>Products</h2>
 
-<table border="1">
+<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -46,12 +64,6 @@
 
 
 <script src="app.js"></script>
-<script>
-  loadAdminProducts();        // таблица
-  loadAdminProductRefs();     // reference IDs
-  loadAdminCategories();
-  loadAdminReviews();
-</script>
 
 
 

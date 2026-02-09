@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Orders</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -17,7 +18,9 @@
 <h2>My Orders</h2>
 <p id="currentUser"></p>
 
-<button onclick="createOrder()">Add Order</button>
+<div id="admin-controls" style="display: none; margin-bottom: 20px;">
+    <button class="buy-btn" onclick="createOrder()">Add Order</button>
+</div>
 
 
 <table border="1">

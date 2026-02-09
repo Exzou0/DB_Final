@@ -56,6 +56,14 @@ Role-based access control (user, admin)
 
 Protected routes for administrative operations
 
+## Features
+- **User Authentication**: Secure Login/Register system with JWT-based role differentiation (Admin/User).
+- **Product Management**: Admins can create, update, and delete products; Users can browse products.
+- **Order System**: One click purchase functionality for users.
+- **Review System**: Users can leave ratings and comments; Admins can moderate (view/delete) all reviews.
+- **Analytics Dashboard**: Admin only view for revenue tracking and top-product statistics.
+- **Minimalist UI**: Responsive design focused on typography and white space using modern CSS.
+
 ## UML Diagrams
 
 ![alt text](image.png)
@@ -63,6 +71,17 @@ Protected routes for administrative operations
 Use Case Diagram illustrates user and admin interactions
 
 Sequence Diagram demonstrates order creation flow
+
+## Project Structure
+- /src/models: Database schemas (User, Product, Order, Review, Category).
+
+- /src/controllers: Logic for handling API requests.
+
+- /src/routes: API endpoints definition.
+
+- /frontend: Client-side HTML, CSS, and app.js.
+
+
 
 ## Technologies Used
 
@@ -75,6 +94,12 @@ MongoDB
 Mongoose
 
 JWT Authentication
+
+Vanilla JS
+
+HTML5
+
+CSS3
 
 ## Conclusion
 

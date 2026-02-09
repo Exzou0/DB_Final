@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Products</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,15 +17,26 @@
 
 <p id="currentUser"></p>
 
-<table border="1">
+<table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Price</th>
-    </tr>
+      <th>Action</th> </tr>
   </thead>
   <tbody id="products"></tbody>
 </table>
+
+<hr>
+<section id="review-section" style="max-width: 800px; width: 100%;">
+  <h2>Leave a Review</h2>
+  <div class="card">
+    <input id="revProductId" type="text" placeholder="Product ID (from table)">
+    <input id="revRating" type="number" min="1" max="5" placeholder="Rating (1-5)">
+    <textarea id="revComment" placeholder="Your comment..." style="width: 100%; border-radius: 8px; padding: 10px; border: 1px solid var(--border-color); margin-bottom: 10px;"></textarea>
+    <button onclick="submitReview()">Submit Review</button>
+  </div>
+</section>
 
 <script src="app.js"></script>
 </body>

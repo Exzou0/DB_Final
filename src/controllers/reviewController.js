@@ -28,3 +28,13 @@ export const deleteReview = async (req, res) => {
   await Review.findByIdAndDelete(req.params.id);
   res.json({ message: "Review deleted" });
 };
+export const getAllReviews = async (req, res) => {
+  try {
+    const reviews = await Review.find()
+      .populate("user_id", "full_name")
+      .populate("product_id", "name"); 
+    res.json(reviews);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
